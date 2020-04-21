@@ -1,4 +1,4 @@
-package com.qianxunclub.permanent.service.login;
+package com.qianxunclub.permanent.service.oauth;
 
 public interface Oauth {
 
@@ -7,4 +7,6 @@ public interface Oauth {
     String token(String code);
 
     String openId(String accessToken);
+
+    String callback(String code, String state);
 }

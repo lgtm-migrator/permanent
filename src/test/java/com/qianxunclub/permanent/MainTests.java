@@ -1,6 +1,6 @@
 package com.qianxunclub.permanent;
 
-import com.qianxunclub.permanent.service.login.QqService;
+import com.qianxunclub.permanent.service.oauth.QqService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.qianxunclub.permanent.service.login;
+package com.qianxunclub.permanent.service.oauth;
 
 import com.qianxunclub.permanent.constants.OauthConstants;
 import com.qianxunclub.permanent.utils.HttpUtil;
@@ -27,7 +27,7 @@ public class QqService implements Oauth {
         params.put("client_id", OauthConstants.QQ_CLIENT_ID);
         params.put("client_secret", OauthConstants.QQ_CLIENT_SECRET);
         params.put("grant_type", "authorization_code");
-        params.put("redirect_uri", URLEncoder.encode(OauthConstants.QQ_REDIRECT_URL));
+        params.put("redirect_uri", OauthConstants.QQ_REDIRECT_URL);
         String response = HttpUtil.httpGet(OauthConstants.QQ_TOKEN_URL, params);
         Matcher m = Pattern.compile(regex).matcher(response);
         if (m.find()) {
@@ -48,6 +48,13 @@ public class QqService implements Oauth {
         if (m.find()) {
             openId = m.group(1);
         }
+        return openId;
+    }
+
+    @Override
+    public String callback(String code, String state) {
+        String token = this.token(code);
+        String openId = this.openId(token);
         return openId;
     }
 
