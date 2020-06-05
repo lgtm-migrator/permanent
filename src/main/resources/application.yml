@@ -6,3 +6,10 @@ spring:
     username: permanent
     password: Permanent123
     driver-class-name: com.mysql.jdbc.Driver
+
+config:
+  oauth:
+    qq:
+      clientId: 101372806
+      clientSecret: 618ebc3de5734fb7623da8037096836d
+      redirectUrl: http://permanent.qianxunclub.com/auth

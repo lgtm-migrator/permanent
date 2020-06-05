@@ -1,7 +1,12 @@
 package com.qianxunclub.permanent.service.auth;
 
+import com.qianxunclub.permanent.config.OauthConfig;
 import com.qianxunclub.permanent.constants.AuthConstants;
+import com.qianxunclub.permanent.constants.AuthConstants.QqApi;
+import com.qianxunclub.permanent.service.auth.data.OauthToken;
+import com.qianxunclub.permanent.service.auth.data.OauthUserInfo;
 import com.qianxunclub.permanent.utils.HttpUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
@@ -11,45 +16,61 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Service
-public class QqService implements Auth {
+@AllArgsConstructor
+public class QqService extends Auth {
+
+    private OauthConfig oauthConfig;
 
     @Override
     public String authorizeUrl(String state) {
-        return String.format(AuthConstants.QQ_AUTH_URL, AuthConstants.QQ_CLIENT_ID, URLEncoder.encode(AuthConstants.QQ_REDIRECT_URL), state);
+        return String.format(AuthConstants.QqApi.AUTHORIZE, oauthConfig.getQq().getClientId(),
+            URLEncoder.encode(oauthConfig.getQq().getRedirectUrl()), state);
     }
 
-    @Override
-    public String token(String code) {
-        String accessToken = null;
+    public OauthToken accessToken(String code) {
         String regex = "^access_token=(\\w+)&expires_in=(\\w+)&refresh_token=(\\w+)$";
         Map<String, String> params = new HashMap<>();
         params.put("code", code);
-        params.put("client_id", AuthConstants.QQ_CLIENT_ID);
-        params.put("client_secret", AuthConstants.QQ_CLIENT_SECRET);
+        params.put("client_id", oauthConfig.getQq().getClientId());
+        params.put("client_secret", oauthConfig.getQq().getClientSecret());
         params.put("grant_type", "authorization_code");
-        params.put("redirect_uri", AuthConstants.QQ_REDIRECT_URL);
-        String response = HttpUtil.httpGet(AuthConstants.QQ_TOKEN_URL, params);
+        params.put("redirect_uri", oauthConfig.getQq().getRedirectUrl());
+        String response = HttpUtil.httpGet(AuthConstants.QqApi.TOKEN, params);
         Matcher m = Pattern.compile(regex).matcher(response);
+        OauthToken oauthToken = null;
         if (m.find()) {
-            accessToken = m.group(1);
+            oauthToken = new OauthToken();
+            oauthToken.setAccessToken(m.group(1));
+            oauthToken.setExpiresIn(m.group(2));
+            oauthToken.setRefreshToken(m.group(3));
         }
-
-        return accessToken;
+        return oauthToken;
     }
 
     @Override
-    public String openId(String code) {
-        String token = this.token(code);
+    public OauthToken token(String code) {
+        OauthToken oauthToken = this.accessToken(code);
         String regex = "\"openid\"\\s*:\\s*\"(\\w+)\"";
         String openId = null;
         Map<String, String> params = new HashMap<>();
-        params.put("access_token", token);
-        String response = HttpUtil.httpGet(AuthConstants.QQ_TOKEN_INFO_URL, params);
+        params.put("access_token", oauthToken.getAccessToken());
+        String response = HttpUtil.httpGet(AuthConstants.QqApi.OPEN_ID, params);
         Matcher m = Pattern.compile(regex).matcher(response);
         if (m.find()) {
             openId = m.group(1);
         }
-        return openId;
+        oauthToken.setOpenId(openId);
+        return oauthToken;
+    }
+
+    @Override
+    public OauthUserInfo userInfo() {
+        Map<String, String> params = new HashMap<>();
+        params.put("access_token", this.oauthEntity.getToken());
+        params.put("oauth_consumer_key", oauthConfig.getQq().getClientId());
+        params.put("openid", this.oauthEntity.getOpenId());
+        String response = HttpUtil.httpGet(QqApi.GET_USER_INFO, params);
+        return null;
     }
 
 

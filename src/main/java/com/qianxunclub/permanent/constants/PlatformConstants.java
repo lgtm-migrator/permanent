@@ -5,18 +5,18 @@ import com.qianxunclub.permanent.service.auth.QqService;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public enum AuthServiceConstants {
+public enum PlatformConstants {
 
     /**
      *
      */
     QQ("QQ", QqService.class);
 
-    private String authType;
+    private String platformName;
     private Class<? extends Auth> authService;
 
-    public String getAuthType() {
-        return authType;
+    public String getPlatformName() {
+        return platformName;
     }
 
     public Class<? extends Auth> getAuthService() {

@@ -2,7 +2,6 @@ package com.qianxunclub.permanent.controller;
 
 
 import com.qianxunclub.permanent.service.LoginService;
-import com.qianxunclub.permanent.utils.HttpUtil;
 
 import lombok.AllArgsConstructor;
 

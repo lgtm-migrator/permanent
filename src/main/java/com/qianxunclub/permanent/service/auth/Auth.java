@@ -1,11 +1,25 @@
 package com.qianxunclub.permanent.service.auth;
 
-public interface Auth {
+import com.qianxunclub.permanent.repository.entity.OauthEntity;
+import com.qianxunclub.permanent.service.auth.data.OauthToken;
+import com.qianxunclub.permanent.service.auth.data.OauthUserInfo;
 
-    String authorizeUrl(String state);
+/**
+ * @author zhangbin
+ */
+public abstract class Auth {
 
-    String token(String code);
+    protected OauthEntity oauthEntity;
 
-    String openId(String code);
+    public Auth init(OauthEntity oauthEntity) {
+        this.oauthEntity = oauthEntity;
+        return this;
+    }
+
+    public abstract String authorizeUrl(String state);
+
+    public abstract OauthToken token(String code);
+
+    public abstract OauthUserInfo userInfo();
 
 }
