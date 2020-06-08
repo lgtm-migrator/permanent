@@ -22,19 +22,21 @@ public class AuthController {
     private LoginService loginService;
 
     @GetMapping("login")
-    public void login(@RequestParam String authType,HttpServletResponse response
+    public void login(
+        @RequestParam String platform,
+        HttpServletResponse response
     ) {
-    	try {
-			response.sendRedirect(loginService.login(authType));
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
+        try {
+            response.sendRedirect(loginService.login(platform));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @GetMapping
     public void callback(
-            @RequestParam String code,
-            @RequestParam String state
+        @RequestParam String code,
+        @RequestParam String state
     ) {
         loginService.callback(code, state);
     }

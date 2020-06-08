@@ -16,13 +16,13 @@ public class LoginService {
 
     private OauthDao oauthDao;
 
-    public String login(String authType) {
-        return AuthFactory.getInstance(authType)
-            .authorizeUrl("{\"authType\":\"" + authType + "\"}");
+    public String login(String platform) {
+        return AuthFactory.getInstance(platform)
+            .authorizeUrl("{\"platform\":\"" + platform + "\"}");
     }
 
     public void callback(String code, String state) {
-        String authType = JsonUtil.getGson().fromJson(state, Map.class).get("authType").toString();
+        String authType = JsonUtil.getGson().fromJson(state, Map.class).get("platform").toString();
         Auth auth = AuthFactory.getInstance(authType);
         OauthToken token = auth.token(code);
         oauthDao.insertOrUpdate(token);
