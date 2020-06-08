@@ -1,6 +1,6 @@
 package com.qianxunclub.permanent.service.auth;
 
-import com.qianxunclub.permanent.config.OauthConfig;
+import com.qianxunclub.permanent.configuration.OauthConfiguration;
 import com.qianxunclub.permanent.constants.AuthConstants;
 import com.qianxunclub.permanent.constants.AuthConstants.QqApi;
 import com.qianxunclub.permanent.service.auth.data.OauthToken;
@@ -19,22 +19,22 @@ import java.util.regex.Pattern;
 @AllArgsConstructor
 public class QqService extends Auth {
 
-    private OauthConfig oauthConfig;
+    private OauthConfiguration oauthConfiguration;
 
     @Override
     public String authorizeUrl(String state) {
-        return String.format(AuthConstants.QqApi.AUTHORIZE, oauthConfig.getQq().getClientId(),
-            URLEncoder.encode(oauthConfig.getQq().getRedirectUrl()), state);
+        return String.format(AuthConstants.QqApi.AUTHORIZE, oauthConfiguration.getQq().getClientId(),
+            URLEncoder.encode(oauthConfiguration.getQq().getRedirectUrl()), state);
     }
 
     public OauthToken accessToken(String code) {
         String regex = "^access_token=(\\w+)&expires_in=(\\w+)&refresh_token=(\\w+)$";
         Map<String, String> params = new HashMap<>();
         params.put("code", code);
-        params.put("client_id", oauthConfig.getQq().getClientId());
-        params.put("client_secret", oauthConfig.getQq().getClientSecret());
+        params.put("client_id", oauthConfiguration.getQq().getClientId());
+        params.put("client_secret", oauthConfiguration.getQq().getClientSecret());
         params.put("grant_type", "authorization_code");
-        params.put("redirect_uri", oauthConfig.getQq().getRedirectUrl());
+        params.put("redirect_uri", oauthConfiguration.getQq().getRedirectUrl());
         String response = HttpUtil.httpGet(AuthConstants.QqApi.TOKEN, params);
         Matcher m = Pattern.compile(regex).matcher(response);
         OauthToken oauthToken = null;
@@ -68,7 +68,7 @@ public class QqService extends Auth {
     public OauthUserInfo userInfo() {
         Map<String, String> params = new HashMap<>();
         params.put("access_token", this.oauthEntity.getToken());
-        params.put("oauth_consumer_key", oauthConfig.getQq().getClientId());
+        params.put("oauth_consumer_key", oauthConfiguration.getQq().getClientId());
         params.put("openid", this.oauthEntity.getOpenId());
         String response = HttpUtil.httpGet(QqApi.GET_USER_INFO, params);
         return null;
