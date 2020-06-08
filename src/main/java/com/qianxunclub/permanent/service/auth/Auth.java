@@ -1,5 +1,6 @@
 package com.qianxunclub.permanent.service.auth;
 
+import com.qianxunclub.permanent.constants.PlatformConstants;
 import com.qianxunclub.permanent.repository.entity.OauthEntity;
 import com.qianxunclub.permanent.service.auth.data.OauthToken;
 import com.qianxunclub.permanent.service.auth.data.OauthUserInfo;
@@ -14,6 +15,10 @@ public abstract class Auth {
     public Auth init(OauthEntity oauthEntity) {
         this.oauthEntity = oauthEntity;
         return this;
+    }
+
+    public String getplatform() {
+        return PlatformConstants.getByService(this.getClass()).getPlatformName();
     }
 
     public abstract String authorizeUrl(String state);

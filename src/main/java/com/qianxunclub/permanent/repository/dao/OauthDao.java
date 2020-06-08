@@ -19,11 +19,12 @@ public class OauthDao {
             .selectByOpenId(oauthToken.getPlatform(), oauthToken.getOpenId());
         if (oauthEntity == null) {
             oauthEntity = new OauthEntity();
+            oauthEntity.setPlatform(oauthToken.getPlatform());
+            oauthEntity.setOpenId(oauthToken.getOpenId());
         }
-        oauthEntity.setPlatform(oauthEntity.getPlatform());
         oauthEntity.setToken(oauthToken.getAccessToken());
-        oauthToken.setExpiresIn(oauthEntity.getExpiresIn());
-        oauthToken.setRefreshToken(oauthToken.getRefreshToken());
+        oauthEntity.setExpiresIn(oauthToken.getExpiresIn());
+        oauthEntity.setRefreshToken(oauthToken.getRefreshToken());
         if (ObjectUtils.isEmpty(oauthEntity.getId())) {
             oauthMapper.insert(oauthEntity);
         } else {

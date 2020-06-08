@@ -22,4 +22,15 @@ public enum PlatformConstants {
     public Class<? extends Auth> getAuthService() {
         return authService;
     }
+
+    public static PlatformConstants getByService(Class<? extends Auth> clazz) {
+        PlatformConstants[] platformConstants = PlatformConstants.values();
+        for (int i = 0; i < platformConstants.length; i++) {
+            PlatformConstants platform = platformConstants[i];
+            if (platform.getAuthService().getClass().isAssignableFrom(clazz.getClass())) {
+                return platform;
+            }
+        }
+        return null;
+    }
 }

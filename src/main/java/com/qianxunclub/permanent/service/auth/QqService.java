@@ -43,6 +43,7 @@ public class QqService extends Auth {
             oauthToken.setAccessToken(m.group(1));
             oauthToken.setExpiresIn(m.group(2));
             oauthToken.setRefreshToken(m.group(3));
+            oauthToken.setPlatform(this.getplatform());
         }
         return oauthToken;
     }

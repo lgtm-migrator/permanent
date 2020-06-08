@@ -5,11 +5,13 @@ import com.qianxunclub.permanent.service.auth.Auth;
 import com.qianxunclub.permanent.service.auth.AuthFactory;
 import com.qianxunclub.permanent.service.auth.data.OauthToken;
 import com.qianxunclub.permanent.utils.JsonUtil;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
 public class LoginService {
 
     private OauthDao oauthDao;
