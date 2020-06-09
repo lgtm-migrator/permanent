@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  nginx:
+    restart: always
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/upstream.conf:/etc/nginx/conf.d/upstream.conf
+      - ./nginx/conf.d/permanent.conf:/etc/nginx/conf.d/permanent.conf
+
+  permanent_core:
+    image: ${PERMANENT_CORE_IMAGE:-960339491/permanent_core:latest}
+    ports:
+      - "8080:8080"
+      - "5005:5005"
