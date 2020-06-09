@@ -1,11 +1,13 @@
-package com.qianxunclub.permanent.service.auth;
+package com.qianxunclub.permanent.service.platform;
 
 import com.qianxunclub.permanent.configuration.OauthConfiguration;
 import com.qianxunclub.permanent.constants.AuthConstants;
 import com.qianxunclub.permanent.constants.AuthConstants.QqApi;
-import com.qianxunclub.permanent.service.auth.data.OauthToken;
-import com.qianxunclub.permanent.service.auth.data.OauthUserInfo;
+import com.qianxunclub.permanent.repository.entity.PlatformEntity;
+import com.qianxunclub.permanent.service.platform.data.PlatformOauth;
+import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import com.qianxunclub.permanent.utils.HttpUtil;
+import com.qianxunclub.permanent.utils.JsonUtil;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +19,18 @@ import java.util.regex.Pattern;
 
 @Service
 @AllArgsConstructor
-public class QqService extends Auth {
+public class QqService extends Platform {
 
-    private OauthConfiguration oauthConfiguration;
+    private final OauthConfiguration oauthConfiguration;
 
     @Override
     public String authorizeUrl(String state) {
-        return String.format(AuthConstants.QqApi.AUTHORIZE, oauthConfiguration.getQq().getClientId(),
-            URLEncoder.encode(oauthConfiguration.getQq().getRedirectUrl()), state);
+        return String
+            .format(AuthConstants.QqApi.AUTHORIZE, oauthConfiguration.getQq().getClientId(),
+                URLEncoder.encode(oauthConfiguration.getQq().getRedirectUrl()), state);
     }
 
-    public OauthToken accessToken(String code) {
+    public PlatformOauth accessToken(String code) {
         String regex = "^access_token=(\\w+)&expires_in=(\\w+)&refresh_token=(\\w+)$";
         Map<String, String> params = new HashMap<>();
         params.put("code", code);
@@ -37,41 +40,45 @@ public class QqService extends Auth {
         params.put("redirect_uri", oauthConfiguration.getQq().getRedirectUrl());
         String response = HttpUtil.httpGet(AuthConstants.QqApi.TOKEN, params);
         Matcher m = Pattern.compile(regex).matcher(response);
-        OauthToken oauthToken = null;
+        PlatformOauth platformOauth = null;
         if (m.find()) {
-            oauthToken = new OauthToken();
-            oauthToken.setAccessToken(m.group(1));
-            oauthToken.setExpiresIn(m.group(2));
-            oauthToken.setRefreshToken(m.group(3));
-            oauthToken.setPlatform(this.getplatform());
+            platformOauth = new PlatformOauth();
+            platformOauth.setAccessToken(m.group(1));
+            platformOauth.setExpiresIn(m.group(2));
+            platformOauth.setRefreshToken(m.group(3));
+            platformOauth.setPlatform(this.getPlatform().getPlatformName());
         }
-        return oauthToken;
+        return platformOauth;
     }
 
     @Override
-    public OauthToken token(String code) {
-        OauthToken oauthToken = this.accessToken(code);
+    public PlatformOauth oauth(String code) {
+        PlatformOauth platformOauth = this.accessToken(code);
         String regex = "\"openid\"\\s*:\\s*\"(\\w+)\"";
         String openId = null;
         Map<String, String> params = new HashMap<>();
-        params.put("access_token", oauthToken.getAccessToken());
+        params.put("access_token", platformOauth.getAccessToken());
         String response = HttpUtil.httpGet(AuthConstants.QqApi.OPEN_ID, params);
         Matcher m = Pattern.compile(regex).matcher(response);
         if (m.find()) {
             openId = m.group(1);
         }
-        oauthToken.setOpenId(openId);
-        return oauthToken;
+        platformOauth.setOpenId(openId);
+        return platformOauth;
     }
 
     @Override
-    public OauthUserInfo userInfo() {
+    public PlatformUserInfo userInfo(PlatformEntity platformEntity) {
         Map<String, String> params = new HashMap<>();
-        params.put("access_token", this.oauthEntity.getToken());
+        params.put("access_token", platformEntity.getToken());
         params.put("oauth_consumer_key", oauthConfiguration.getQq().getClientId());
-        params.put("openid", this.oauthEntity.getOpenId());
+        params.put("openid", platformEntity.getOpenId());
         String response = HttpUtil.httpGet(QqApi.GET_USER_INFO, params);
-        return null;
+        PlatformUserInfo platformUserInfo = JsonUtil.getGson()
+            .fromJson(response, PlatformUserInfo.class);
+        platformUserInfo.setAvatarUrl(
+            JsonUtil.getGson().fromJson(response, Map.class).get("figureurl_qq_2").toString());
+        return platformUserInfo;
     }
 
 

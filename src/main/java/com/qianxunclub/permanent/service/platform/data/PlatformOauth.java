@@ -1,9 +1,12 @@
-package com.qianxunclub.permanent.service.auth.data;
+package com.qianxunclub.permanent.service.platform.data;
 
 import lombok.Data;
 
+/**
+ * @author zhangbin
+ */
 @Data
-public class OauthToken {
+public class PlatformOauth {
 
     private String platform;
     private String accessToken;
