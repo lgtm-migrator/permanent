@@ -8,7 +8,10 @@ import com.qianxunclub.permanent.service.platform.data.PlatformOauth;
 import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import com.qianxunclub.permanent.utils.HttpUtil;
 import com.qianxunclub.permanent.utils.JsonUtil;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 import lombok.AllArgsConstructor;
+import org.apache.commons.codec.Charsets;
 import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
@@ -25,13 +28,19 @@ public class QqService extends Platform {
 
     @Override
     public String authorizeUrl(String state) {
-        return String
-            .format(AuthConstants.QqApi.AUTHORIZE, oauthConfiguration.getQq().getClientId(),
-                URLEncoder.encode(oauthConfiguration.getQq().getRedirectUrl()), state);
+        try {
+            return String.format(
+                QqApi.AUTHORIZE,
+                oauthConfiguration.getQq().getClientId(),
+                URLEncoder.encode(oauthConfiguration.getQq().getRedirectUrl(), "UTF-8"),
+                state);
+        } catch (UnsupportedEncodingException e) {
+        }
+        return null;
     }
 
     public PlatformOauth accessToken(String code) {
-        String regex = "^access_token=(\\w+)&expires_in=(\\w+)&refresh_token=(\\w+)$";
+        final String regex = "^access_token=(\\w+)&expires_in=(\\w+)&refresh_token=(\\w+)$";
         Map<String, String> params = new HashMap<>();
         params.put("code", code);
         params.put("client_id", oauthConfiguration.getQq().getClientId());
@@ -54,7 +63,7 @@ public class QqService extends Platform {
     @Override
     public PlatformOauth oauth(String code) {
         PlatformOauth platformOauth = this.accessToken(code);
-        String regex = "\"openid\"\\s*:\\s*\"(\\w+)\"";
+        final String regex = "\"openid\"\\s*:\\s*\"(\\w+)\"";
         String openId = null;
         Map<String, String> params = new HashMap<>();
         params.put("access_token", platformOauth.getAccessToken());
