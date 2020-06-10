@@ -4,15 +4,21 @@ services:
     restart: always
     image: nginx
     container_name: nginx
+    expose:
+      - "80"
     ports:
-      - 80:80
+      - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d/upstream.conf:/etc/nginx/conf.d/upstream.conf
       - ./nginx/conf.d/permanent.conf:/etc/nginx/conf.d/permanent.conf
-
-  permanent_core:
-    image: ${PERMANENT_CORE_IMAGE:-960339491/permanent_core:latest}
+    depends_on:
+      - permanent-core
+  permanent-core:
+    image: ${PERMANENT_CORE_IMAGE:-960339491/permanent-core:latest}
+    expose:
+      - "8080"
+      - "5005"
     ports:
       - "8080:8080"
       - "5005:5005"
