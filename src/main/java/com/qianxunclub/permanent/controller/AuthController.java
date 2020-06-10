@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author zhangbin
  */
 @RestController
-@RequestMapping("auth")
+@RequestMapping("api/auth")
 @AllArgsConstructor
 public class AuthController {
 
@@ -28,12 +28,8 @@ public class AuthController {
     public void auth(
         @RequestParam String platform,
         HttpServletResponse response
-    ) {
-        try {
-            response.sendRedirect(authService.auth(platform));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    ) throws IOException {
+        response.sendRedirect(authService.auth(platform));
     }
 
     @GetMapping("callback")

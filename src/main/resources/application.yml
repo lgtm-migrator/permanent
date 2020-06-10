@@ -12,4 +12,4 @@ config:
     qq:
       clientId: 101372806
       clientSecret: 618ebc3de5734fb7623da8037096836d
-      redirectUrl: http://permanent.qianxunclub.com/auth/callback
+      redirectUrl: http://permanent.qianxunclub.com/api/auth/callback

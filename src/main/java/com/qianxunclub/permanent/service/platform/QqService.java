@@ -9,9 +9,7 @@ import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import com.qianxunclub.permanent.utils.HttpUtil;
 import com.qianxunclub.permanent.utils.JsonUtil;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import lombok.AllArgsConstructor;
-import org.apache.commons.codec.Charsets;
 import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;

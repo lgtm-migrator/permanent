@@ -7,6 +7,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @author zhangbin
+ */
 @Slf4j
 @Component
 public class ProtectedInterceptor extends HandlerInterceptorAdapter {
@@ -16,6 +19,7 @@ public class ProtectedInterceptor extends HandlerInterceptorAdapter {
             HttpServletResponse response,
             Object handler
     ) throws Exception {
+        log.info("当前接口需要校验权限：" + request.getRequestURI());
         return super.preHandle(request, response, handler);
     }
 }
