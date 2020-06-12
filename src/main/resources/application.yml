@@ -6,8 +6,14 @@ spring:
     username: permanent
     password: Permanent123
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
 
 config:
+  session:
+    # session 超时时间，单位：小时
+    timeout: 24
   oauth:
     qq:
       clientId: 101372806

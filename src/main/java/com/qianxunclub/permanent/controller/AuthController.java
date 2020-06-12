@@ -1,6 +1,8 @@
 package com.qianxunclub.permanent.controller;
 
 
+import com.qianxunclub.permanent.model.CustomersInfo;
+import com.qianxunclub.permanent.model.Result;
 import com.qianxunclub.permanent.service.AuthService;
 
 import lombok.AllArgsConstructor;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -33,10 +36,14 @@ public class AuthController {
     }
 
     @GetMapping("callback")
-    public void callback(
+    @ResponseBody
+    public Result callback(
+        HttpServletResponse response,
         @RequestParam String code,
         @RequestParam String state
     ) {
-        authService.callback(code, state);
+        CustomersInfo customersInfo = authService.callback(code, state);
+        authService.loginByPlatform(response, customersInfo);
+        return null;
     }
 }

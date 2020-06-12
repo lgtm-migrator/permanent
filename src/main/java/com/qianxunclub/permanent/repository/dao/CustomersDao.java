@@ -19,5 +19,9 @@ public class CustomersDao {
         return customersEntity;
     }
 
+    public CustomersEntity getById(Long id) {
+        return customersMapper.selectById(id);
+    }
+
 
 }
