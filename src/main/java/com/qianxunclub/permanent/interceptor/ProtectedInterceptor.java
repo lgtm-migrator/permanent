@@ -31,16 +31,18 @@ public class ProtectedInterceptor extends HandlerInterceptorAdapter {
         HttpServletResponse response,
         Object handler
     ) throws Exception {
+        String sessionId;
         Cookie cookie = CookieUtil.get(request, BaseConstants.SESSION_COOKIE_NAME);
         if (cookie == null) {
             throw CoreException.of(CodeConstants.USER_NOT_LOGIN);
         }
-        String sessionId = cookie.getValue();
+        sessionId = cookie.getValue();
         SessionInfo sessionInfo = sessionService.get(sessionId);
         if (sessionInfo == null) {
             throw CoreException.of(CodeConstants.USER_NOT_LOGIN);
         }
         sessionService.save(sessionId, sessionInfo);
+        request.setAttribute(BaseConstants.SESSION_INFO, sessionInfo);
         return super.preHandle(request, response, handler);
     }
 }

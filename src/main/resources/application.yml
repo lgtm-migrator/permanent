@@ -10,6 +10,15 @@ spring:
     host: localhost
     port: 6379
 
+swagger:
+  enabled: true
+  title: 记忆卡片
+  description: 记忆卡片
+  webBasePackage: com.qianxunclub.permanent.controller
+  author: 千寻啊千寻
+  url: permanent.qianxunclub.com
+  email: qianxunclub@qq.com
+
 config:
   session:
     # session 超时时间，单位：小时

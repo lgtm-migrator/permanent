@@ -14,7 +14,6 @@ public class PermanentApplication {
 	public static ConfigurableApplicationContext context;
 	public static void main(String[] args) {
 		context = SpringApplication.run(PermanentApplication.class, args);
-		log.info("启动成功访问：http://permanent.qianxunclub.com/api/auth?platform=QQ");
 	}
 
 }

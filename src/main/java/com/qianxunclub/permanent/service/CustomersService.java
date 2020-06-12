@@ -47,4 +47,12 @@ public class CustomersService {
         return customersEntity;
     }
 
+    public CustomersEntity get(Long id) {
+        return customersDao.getById(id);
+    }
+
+    public CustomersEntity get(String username) {
+        return customersDao.getByUsername(username);
+    }
+
 }

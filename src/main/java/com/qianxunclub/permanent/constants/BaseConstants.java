@@ -7,4 +7,6 @@ public class BaseConstants {
 
     public static final String SESSION_COOKIE_NAME = "sid";
 
+    public static final String SESSION_INFO = "sessionInfo";
+
 }

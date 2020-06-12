@@ -1,5 +1,6 @@
 package com.qianxunclub.permanent.repository.dao;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.qianxunclub.permanent.repository.entity.CustomersEntity;
 import com.qianxunclub.permanent.repository.mapper.CustomersMapper;
 import java.sql.Timestamp;
@@ -23,5 +24,10 @@ public class CustomersDao {
         return customersMapper.selectById(id);
     }
 
+    public CustomersEntity getByUsername(String username) {
+        QueryWrapper queryWrapper = new QueryWrapper();
+        queryWrapper.eq("username", username);
+        return customersMapper.selectOne(queryWrapper);
+    }
 
 }
