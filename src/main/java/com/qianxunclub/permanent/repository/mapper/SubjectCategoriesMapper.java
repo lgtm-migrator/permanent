@@ -12,8 +12,16 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface SubjectCategoriesMapper extends BaseMapper<SubjectCategoriesEntity> {
 
+    /**
+     * 刷新排序
+     *
+     * @param customersId
+     * @param parentId
+     * @param orderNumber
+     */
     @Update("update subject_categories set order_number = order_number + 1 where customers_id = #{customersId} and order_number >= #{orderNumber} and parent_id = #{parentId}")
-    int refreshOrderNumber(@Param("customersId") Long customersId, @Param("parentId") Long parentId,
+    void refreshOrderNumber(@Param("customersId") Long customersId,
+        @Param("parentId") Long parentId,
         @Param("orderNumber") Long orderNumber);
 
 }

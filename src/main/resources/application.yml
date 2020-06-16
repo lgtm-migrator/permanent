@@ -7,8 +7,9 @@ spring:
     password: Permanent123
     driver-class-name: com.mysql.jdbc.Driver
   redis:
-    host: localhost
+    host: ecs.qianxunclub.com
     port: 6379
+    password: 123456
 
 swagger:
   enabled: true

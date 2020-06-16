@@ -25,7 +25,7 @@ public class CustomersDao {
     }
 
     public CustomersEntity getByUsername(String username) {
-        QueryWrapper queryWrapper = new QueryWrapper();
+        QueryWrapper<CustomersEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", username);
         return customersMapper.selectOne(queryWrapper);
     }

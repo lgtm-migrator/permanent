@@ -44,7 +44,7 @@ public class AuthService {
         return customersInfo;
     }
 
-    public void loginByPlatform(HttpServletResponse response, CustomersInfo customersInfo) {
+    public SessionInfo loginByPlatform(HttpServletResponse response, CustomersInfo customersInfo) {
         String sessionId = UUID.randomUUID().toString();
         Cookie cookie = new Cookie(BaseConstants.SESSION_COOKIE_NAME, sessionId);
         response.addCookie(cookie);
@@ -56,6 +56,7 @@ public class AuthService {
         sessionInfo.setPlatform(customersInfo.getPlatform());
         sessionInfo.setOpenId(customersInfo.getOpenId());
         sessionService.save(sessionId, sessionInfo);
+        return sessionInfo;
     }
 
 }

@@ -47,16 +47,18 @@ public class SubjectCategoriesService {
         subjectCategoriesEntity.setCustomersId(customersId);
         subjectCategoriesEntity.setCategoriesName(postSubjectCategories.getCategoriesName());
         subjectCategoriesEntity.setParentId(parentId);
-        subjectCategoriesEntity.setOrderNumber(postSubjectCategories.getOrderNumber());
-
+        Long orderNumber;
         if (!ObjectUtils.isEmpty(postSubjectCategories.getOrderNumber())) {
+            orderNumber = postSubjectCategories.getOrderNumber();
             if (subjectCategoriesDao
                 .isExistOrderNumber(customersId, postSubjectCategories.getOrderNumber())) {
                 subjectCategoriesDao.refreshOrderNumber(customersId, parentId,
                     postSubjectCategories.getOrderNumber());
             }
+        } else {
+            orderNumber = subjectCategoriesDao.maxOrderNumber(customersId, parentId);
         }
-
+        subjectCategoriesEntity.setOrderNumber(orderNumber);
         subjectCategoriesDao.addNode(subjectCategoriesEntity);
     }
 

@@ -43,7 +43,6 @@ public class AuthController {
         @RequestParam String state
     ) {
         CustomersInfo customersInfo = authService.callback(code, state);
-        authService.loginByPlatform(response, customersInfo);
-        return null;
+        return Result.success(authService.loginByPlatform(response, customersInfo));
     }
 }

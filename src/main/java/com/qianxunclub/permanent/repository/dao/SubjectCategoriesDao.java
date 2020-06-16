@@ -15,24 +15,24 @@ import org.springframework.stereotype.Repository;
 @AllArgsConstructor
 public class SubjectCategoriesDao {
 
-    private SubjectCategoriesMapper subjectCategoriesMapper;
+    private final SubjectCategoriesMapper subjectCategoriesMapper;
 
     public SubjectCategoriesEntity get(Long customersId, Long subjectCategoriesId) {
-        QueryWrapper queryWrapper = new QueryWrapper();
+        QueryWrapper<SubjectCategoriesEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id", subjectCategoriesId);
         queryWrapper.eq("customers_id", customersId);
         return subjectCategoriesMapper.selectOne(queryWrapper);
     }
 
     public boolean isExistOrderNumber(Long customersId, Long orderNumber) {
-        QueryWrapper queryWrapper = new QueryWrapper();
+        QueryWrapper<SubjectCategoriesEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("customers_id", customersId);
         queryWrapper.eq("order_number", orderNumber);
         return subjectCategoriesMapper.selectCount(queryWrapper) > 0;
     }
 
     public List<SubjectCategoriesEntity> getRootNodes(Long customersId) {
-        QueryWrapper queryWrapper = new QueryWrapper();
+        QueryWrapper<SubjectCategoriesEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("customers_id", customersId);
         queryWrapper.isNull("parent_id");
         queryWrapper.orderByAsc("order_number");
@@ -40,7 +40,7 @@ public class SubjectCategoriesDao {
     }
 
     public List<SubjectCategoriesEntity> getChildNodes(Long customersId, Long parentId) {
-        QueryWrapper queryWrapper = new QueryWrapper();
+        QueryWrapper<SubjectCategoriesEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("customers_id", customersId);
         queryWrapper.eq("parent_id", parentId);
         queryWrapper.orderByAsc("order_number");
@@ -57,6 +57,16 @@ public class SubjectCategoriesDao {
 
     public void refreshOrderNumber(Long customersId, Long parentId, Long orderNumber) {
         subjectCategoriesMapper.refreshOrderNumber(customersId, parentId, orderNumber);
+    }
+
+    public Long maxOrderNumber(Long customersId, Long parent_id) {
+        QueryWrapper<SubjectCategoriesEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("customers_id", customersId);
+        queryWrapper.eq("parent_id", parent_id);
+        queryWrapper.orderByAsc("order_number");
+        SubjectCategoriesEntity subjectCategoriesEntity = subjectCategoriesMapper
+            .selectOne(queryWrapper);
+        return subjectCategoriesEntity == null ? null : subjectCategoriesEntity.getOrderNumber();
     }
 
 }

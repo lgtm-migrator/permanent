@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @AllArgsConstructor
 public class ProtectedInterceptor extends HandlerInterceptorAdapter {
 
-    private SessionService sessionService;
+    private final SessionService sessionService;
 
     @Override
     public boolean preHandle(
