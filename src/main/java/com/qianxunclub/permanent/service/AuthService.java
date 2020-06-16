@@ -51,6 +51,8 @@ public class AuthService {
         SessionInfo sessionInfo = new SessionInfo();
         sessionInfo.setCustomersId(customersInfo.getId());
         sessionInfo.setUsername(customersInfo.getUsername());
+        sessionInfo.setNickname(customersInfo.getNickname());
+        sessionInfo.setGender(customersInfo.getGender());
         sessionInfo.setPhone(customersInfo.getPhone());
         sessionInfo.setEmail(customersInfo.getEmail());
         sessionInfo.setPlatform(customersInfo.getPlatform());

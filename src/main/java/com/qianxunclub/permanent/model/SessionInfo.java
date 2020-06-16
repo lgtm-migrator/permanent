@@ -8,6 +8,8 @@ public class SessionInfo {
     private String username;
     private String phone;
     private String email;
+    private String gender;
+    private String nickname;
     private String platform;
     private String openId;
 
