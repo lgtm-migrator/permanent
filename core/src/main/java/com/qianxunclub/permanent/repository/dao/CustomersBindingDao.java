@@ -7,6 +7,9 @@ import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @author zhangbin
+ */
 @Repository
 @AllArgsConstructor
 public class CustomersBindingDao {

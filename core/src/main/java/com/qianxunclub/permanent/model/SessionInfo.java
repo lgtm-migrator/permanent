@@ -2,6 +2,9 @@ package com.qianxunclub.permanent.model;
 
 import lombok.Data;
 
+/**
+ * @author zhangbin
+ */
 @Data
 public class SessionInfo {
     private Long customersId;

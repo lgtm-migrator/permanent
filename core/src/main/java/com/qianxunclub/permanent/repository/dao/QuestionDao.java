@@ -2,8 +2,8 @@ package com.qianxunclub.permanent.repository.dao;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qianxunclub.permanent.repository.entity.QuestionsEntity;
-import com.qianxunclub.permanent.repository.mapper.QuestionsMapper;
+import com.qianxunclub.permanent.repository.entity.QuestionEntity;
+import com.qianxunclub.permanent.repository.mapper.QuestionMapper;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @AllArgsConstructor
-public class QuestionsDao {
+public class QuestionDao {
 
-    private final QuestionsMapper questionsMapper;
+    private final QuestionMapper questionMapper;
 
     /**
      * 获取问题列表
@@ -23,7 +23,7 @@ public class QuestionsDao {
      * @param customersId
      * @return
      */
-    public List<QuestionsEntity> list(Long customersId) {
+    public List<QuestionEntity> list(Long customersId) {
         return this.list(customersId, null);
     }
 
@@ -34,16 +34,16 @@ public class QuestionsDao {
      * @param subjectCategoriesId 不必填
      * @return
      */
-    public List<QuestionsEntity> list(Long customersId, Long subjectCategoriesId) {
-        QueryWrapper<QuestionsEntity> queryWrapper = new QueryWrapper<>();
+    public List<QuestionEntity> list(Long customersId, Long subjectCategoriesId) {
+        QueryWrapper<QuestionEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("customers_id", customersId);
         if (subjectCategoriesId != null) {
             queryWrapper.eq("subject_categories_id", subjectCategoriesId);
         }
-        return questionsMapper.selectList(queryWrapper);
+        return questionMapper.selectList(queryWrapper);
     }
 
     public void refreshOrderNumber(Long customersId, Long subjectCategoriesId, Long orderNumber) {
-        questionsMapper.refreshOrderNumber(customersId, subjectCategoriesId, orderNumber);
+        questionMapper.refreshOrderNumber(customersId, subjectCategoriesId, orderNumber);
     }
 }

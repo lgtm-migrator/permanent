@@ -6,6 +6,9 @@ import java.sql.Timestamp;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
+/**
+ * @author zhangbin
+ */
 @Data
 public class CustomersInfo {
 

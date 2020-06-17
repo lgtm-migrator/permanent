@@ -1,7 +1,7 @@
 package com.qianxunclub.permanent.repository.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.qianxunclub.permanent.repository.entity.QuestionsEntity;
+import com.qianxunclub.permanent.repository.entity.QuestionEntity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
  * @author zhangbin
  */
 @Mapper
-public interface QuestionsMapper extends BaseMapper<QuestionsEntity> {
+public interface QuestionMapper extends BaseMapper<QuestionEntity> {
 
     /**
      * 刷新排序

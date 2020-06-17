@@ -7,6 +7,9 @@ import java.util.List;
 import lombok.Data;
 import org.springframework.beans.BeanUtils;
 
+/**
+ * @author zhangbin
+ */
 @Data
 public class SubjectCategoriesNode {
 

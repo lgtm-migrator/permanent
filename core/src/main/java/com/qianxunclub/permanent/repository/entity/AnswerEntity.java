@@ -10,16 +10,14 @@ import lombok.Data;
  * @author zhangbin
  */
 @Data
-@TableName("questions")
-public class QuestionsEntity {
+@TableName("answer")
+public class AnswerEntity {
 
     @TableId(type = IdType.AUTO)
     private Long id;
     private Long customersId;
-    private String title;
-    private String content;
-    private Long answerId;
-    private Long orderNumber;
+    private String sourceContent;
+    private String showContent;
     private Timestamp updateAt;
     private Timestamp createAt;
 }

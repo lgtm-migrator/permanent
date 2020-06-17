@@ -29,7 +29,7 @@ public class AuthService {
 
     private final PlatformDao platformDao;
     private final CustomersService customersService;
-    private SessionService sessionService;
+    private final SessionService sessionService;
 
     public String auth(String platform) {
         return PlatformFactory.getInstance(platform)
