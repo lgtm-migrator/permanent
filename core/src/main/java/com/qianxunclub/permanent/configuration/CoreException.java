@@ -32,7 +32,7 @@ public class CoreException extends Exception {
             CoreException coreException = (CoreException) exception;
             result = new Result(coreException.code, coreException.message);
         } else {
-            result = new Result(CodeConstants.FAIL);
+            result = new Result(CodeConstants.FAIL.setMessage(exception.getMessage()));
         }
         log.error(result.toString(), exception);
         return new ResponseEntity<>(result, this.httpStatus);

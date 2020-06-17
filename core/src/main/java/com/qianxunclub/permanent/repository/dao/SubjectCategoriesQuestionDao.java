@@ -1,7 +1,6 @@
 package com.qianxunclub.permanent.repository.dao;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.qianxunclub.permanent.repository.entity.SubjectCategoriesEntity;
 import com.qianxunclub.permanent.repository.entity.SubjectCategoriesQuestionEntity;
 import com.qianxunclub.permanent.repository.mapper.SubjectCategoriesQuestionMapper;
 import lombok.AllArgsConstructor;

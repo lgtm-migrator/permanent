@@ -29,3 +29,6 @@ config:
       clientId: 101372806
       clientSecret: 618ebc3de5734fb7623da8037096836d
       redirectUrl: http://permanent.qianxunclub.com/api/auth/callback
+    wxss:
+      appId: wx1bd815cb5a4bac51
+      appSecret: b0cbcf514dba1172e6ff3856c4d5b1e4

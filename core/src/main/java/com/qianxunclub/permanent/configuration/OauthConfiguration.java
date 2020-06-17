@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class OauthConfiguration {
 
     private Qq qq;
+    private Wxss wxss;
 
     @Data
     public static class Qq {
@@ -20,5 +21,12 @@ public class OauthConfiguration {
         private String clientId;
         private String clientSecret;
         private String redirectUrl;
+    }
+
+    @Data
+    public static class Wxss {
+
+        private String appId;
+        private String appSecret;
     }
 }

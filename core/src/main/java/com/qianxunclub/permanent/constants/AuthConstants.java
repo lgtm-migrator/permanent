@@ -19,4 +19,14 @@ public class AuthConstants {
         public static final String OPEN_ID = "https://graph.qq.com/oauth2.0/me";
         public static final String GET_USER_INFO = "https://graph.qq.com/user/get_user_info";
     }
+
+    public static class WxssApi {
+
+        private WxssApi() {
+        }
+
+        public static final String AUTHORIZE = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
+    }
+
+
 }

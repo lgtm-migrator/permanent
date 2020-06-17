@@ -9,7 +9,8 @@ import com.qianxunclub.permanent.constants.PlatformConstants;
 public class PlatformFactory {
 
     public static Platform getInstance(String platform) {
-        Class<? extends Platform> auth = PlatformConstants.valueOf(platform).getAuthService();
+        Class<? extends Platform> auth = PlatformConstants.valueOf(platform.toUpperCase())
+            .getAuthService();
         return PermanentApplication.context.getBean(auth);
     }
 }

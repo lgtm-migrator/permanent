@@ -18,6 +18,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author zhangbin
+ */
 @Service
 @AllArgsConstructor
 public class QqService extends Platform {

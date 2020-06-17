@@ -9,4 +9,6 @@ public class BaseConstants {
 
     public static final String SESSION_INFO = "sessionInfo";
 
+    public static final String WXSS_ACCESS_TOKEN = "wxssAccessToken";
+
 }

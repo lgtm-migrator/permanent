@@ -1,6 +1,8 @@
 package com.qianxunclub.permanent.service;
 
+import com.qianxunclub.permanent.configuration.CoreException;
 import com.qianxunclub.permanent.constants.BaseConstants;
+import com.qianxunclub.permanent.constants.PlatformConstants;
 import com.qianxunclub.permanent.model.CustomersInfo;
 import com.qianxunclub.permanent.model.SessionInfo;
 import com.qianxunclub.permanent.repository.dao.PlatformDao;
@@ -32,20 +34,28 @@ public class AuthService {
     private final CustomersService customersService;
     private final SessionService sessionService;
 
-    public String auth(String platform) {
+    public String authorize(String platform) throws CoreException {
+        if (PlatformConstants.WXSS.equals(PlatformConstants.valueOf(platform))) {
+            return null;
+        }
         return PlatformFactory.getInstance(platform)
             .authorizeUrl("{\"platform\":\"" + platform + "\"}");
     }
 
     @Transactional(rollbackFor = {Exception.class})
-    public CustomersInfo callback(String code, String state) {
+    public CustomersInfo callback(String code, String state) throws CoreException {
         String authType = JsonUtil.getGson().fromJson(state, Map.class).get("platform").toString();
         Platform platform = PlatformFactory.getInstance(authType);
         PlatformOauth platformOauth = platform.oauth(code);
         PlatformEntity platformEntity = platformDao.insertOrUpdate(platformOauth);
         PlatformUserInfo platformUserInfo = platform.userInfo(platformEntity);
-        CustomersInfo customersInfo = customersService.register(platformUserInfo, platformEntity);
-        return customersInfo;
+        return customersService.register(platformUserInfo, platformEntity);
+    }
+
+    @Transactional(rollbackFor = {Exception.class})
+    public CustomersInfo register(PlatformOauth platformOauth, PlatformUserInfo platformUserInfo) {
+        PlatformEntity platformEntity = platformDao.insertOrUpdate(platformOauth);
+        return customersService.register(platformUserInfo, platformEntity);
     }
 
     public SessionInfo loginByPlatform(

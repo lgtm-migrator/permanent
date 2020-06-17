@@ -19,9 +19,14 @@ public enum CodeConstants {
     FAIL("1", HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), HttpStatus.INTERNAL_SERVER_ERROR),
 
     /**
+     * 通用
+     */
+    NOT_SUPPORTED("200", "Not Supported", HttpStatus.INTERNAL_SERVER_ERROR),
+
+    /**
      * 权限相关
      */
-    USER_NOT_LOGIN("200", "user_not_login", HttpStatus.FORBIDDEN),
+    USER_NOT_LOGIN("300", "User Not Login", HttpStatus.FORBIDDEN),
     ;
 
     /**
@@ -31,11 +36,14 @@ public enum CodeConstants {
     /**
      *
      */
-    private final String message;
+    private String message;
     /**
      *
      */
     private final HttpStatus httpStatus;
 
-
+    public CodeConstants setMessage(String message) {
+        this.message = message;
+        return this;
+    }
 }
