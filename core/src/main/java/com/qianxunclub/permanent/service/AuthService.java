@@ -9,9 +9,11 @@ import com.qianxunclub.permanent.service.platform.Platform;
 import com.qianxunclub.permanent.service.platform.PlatformFactory;
 import com.qianxunclub.permanent.service.platform.data.PlatformOauth;
 import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
+import com.qianxunclub.permanent.utils.CookieUtil;
 import com.qianxunclub.permanent.utils.JsonUtil;
 import java.util.UUID;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -44,19 +46,35 @@ public class AuthService {
         return customersInfo;
     }
 
-    public SessionInfo loginByPlatform(HttpServletResponse response, CustomersInfo customersInfo) {
-        String sessionId = UUID.randomUUID().toString();
-        Cookie cookie = new Cookie(BaseConstants.SESSION_COOKIE_NAME, sessionId);
-        response.addCookie(cookie);
-        SessionInfo sessionInfo = new SessionInfo();
-        sessionInfo.setCustomersId(customersInfo.getId());
-        sessionInfo.setUsername(customersInfo.getUsername());
-        sessionInfo.setNickname(customersInfo.getNickname());
-        sessionInfo.setGender(customersInfo.getGender());
-        sessionInfo.setPhone(customersInfo.getPhone());
-        sessionInfo.setEmail(customersInfo.getEmail());
-        sessionInfo.setPlatform(customersInfo.getPlatform());
-        sessionInfo.setOpenId(customersInfo.getOpenId());
+    public SessionInfo loginByPlatform(
+        HttpServletRequest request,
+        HttpServletResponse response,
+        CustomersInfo customersInfo
+    ) {
+        String sessionId = null;
+        SessionInfo sessionInfo = null;
+        Cookie cookie = CookieUtil.get(request, BaseConstants.SESSION_COOKIE_NAME);
+        if (cookie != null) {
+            sessionId = cookie.getValue();
+            SessionInfo si = sessionService.get(sessionId);
+            if (si != null) {
+                sessionInfo = si;
+            }
+        }
+        if (sessionInfo == null) {
+            sessionId = UUID.randomUUID().toString();
+            cookie = new Cookie(BaseConstants.SESSION_COOKIE_NAME, sessionId);
+            response.addCookie(cookie);
+            sessionInfo = new SessionInfo();
+            sessionInfo.setCustomersId(customersInfo.getId());
+            sessionInfo.setUsername(customersInfo.getUsername());
+            sessionInfo.setNickname(customersInfo.getNickname());
+            sessionInfo.setGender(customersInfo.getGender());
+            sessionInfo.setPhone(customersInfo.getPhone());
+            sessionInfo.setEmail(customersInfo.getEmail());
+            sessionInfo.setPlatform(customersInfo.getPlatform());
+            sessionInfo.setOpenId(customersInfo.getOpenId());
+        }
         sessionService.save(sessionId, sessionInfo);
         return sessionInfo;
     }

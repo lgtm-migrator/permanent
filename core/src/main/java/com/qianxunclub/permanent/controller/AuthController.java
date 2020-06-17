@@ -5,6 +5,7 @@ import com.qianxunclub.permanent.model.CustomersInfo;
 import com.qianxunclub.permanent.model.Result;
 import com.qianxunclub.permanent.service.AuthService;
 
+import javax.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 
 import java.io.IOException;
@@ -39,10 +40,11 @@ public class AuthController {
     @ResponseBody
     public Result callback(
         HttpServletResponse response,
+        HttpServletRequest request,
         @RequestParam String code,
         @RequestParam String state
     ) {
         CustomersInfo customersInfo = authService.callback(code, state);
-        return Result.success(authService.loginByPlatform(response, customersInfo));
+        return Result.success(authService.loginByPlatform(request, response, customersInfo));
     }
 }
