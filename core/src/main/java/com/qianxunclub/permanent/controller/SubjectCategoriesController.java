@@ -39,7 +39,7 @@ public class SubjectCategoriesController {
         @RequestBody PostSubjectCategories postSubjectCategories
     ) {
         subjectCategoriesService
-            .addSubjectCategories(sessionInfo.getCustomersId(), postSubjectCategories);
+            .insertAndRefreshOrderNumber(sessionInfo.getCustomersId(), postSubjectCategories);
         return Result.success();
     }
 

@@ -10,7 +10,11 @@ import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author zhangbin
+ */
 @Service
 @AllArgsConstructor
 public class CustomersService {
@@ -18,6 +22,7 @@ public class CustomersService {
     private final CustomersBindingDao customersBindingDao;
     private final CustomersDao customersDao;
 
+    @Transactional(rollbackFor = {Exception.class})
     public CustomersInfo register(PlatformUserInfo platformUserInfo,
         PlatformEntity platformEntity) {
         CustomersEntity customersEntity;

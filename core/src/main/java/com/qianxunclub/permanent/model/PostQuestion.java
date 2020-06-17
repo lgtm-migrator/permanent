@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class PostQuestion {
 
+    private Long subjectCategoriesId;
     private String title;
     private String editType;
     private String questionsContent;

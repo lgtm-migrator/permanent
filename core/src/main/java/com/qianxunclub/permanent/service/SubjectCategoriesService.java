@@ -9,8 +9,12 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
+/**
+ * @author zhangbin
+ */
 @Service
 @AllArgsConstructor
 public class SubjectCategoriesService {
@@ -32,7 +36,8 @@ public class SubjectCategoriesService {
         return tree;
     }
 
-    public void addSubjectCategories(Long customersId,
+    @Transactional(rollbackFor = {Exception.class})
+    public void insertAndRefreshOrderNumber(Long customersId,
         PostSubjectCategories postSubjectCategories) {
         Long parentId = null;
         if (!ObjectUtils.isEmpty(postSubjectCategories.getParentId())) {

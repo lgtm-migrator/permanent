@@ -19,6 +19,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author zhangbin
@@ -36,6 +37,7 @@ public class AuthService {
             .authorizeUrl("{\"platform\":\"" + platform + "\"}");
     }
 
+    @Transactional(rollbackFor = {Exception.class})
     public CustomersInfo callback(String code, String state) {
         String authType = JsonUtil.getGson().fromJson(state, Map.class).get("platform").toString();
         Platform platform = PlatformFactory.getInstance(authType);

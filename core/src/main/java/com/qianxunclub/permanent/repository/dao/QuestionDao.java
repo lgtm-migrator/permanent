@@ -4,6 +4,7 @@ package com.qianxunclub.permanent.repository.dao;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.qianxunclub.permanent.repository.entity.QuestionEntity;
 import com.qianxunclub.permanent.repository.mapper.QuestionMapper;
+import java.sql.Timestamp;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -43,7 +44,11 @@ public class QuestionDao {
         return questionMapper.selectList(queryWrapper);
     }
 
-    public void refreshOrderNumber(Long customersId, Long subjectCategoriesId, Long orderNumber) {
-        questionMapper.refreshOrderNumber(customersId, subjectCategoriesId, orderNumber);
+    public QuestionEntity insert(QuestionEntity questionEntity) {
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        questionEntity.setCreateAt(timestamp);
+        questionEntity.setUpdateAt(timestamp);
+        questionMapper.insert(questionEntity);
+        return questionEntity;
     }
 }

@@ -46,7 +46,8 @@ public class QuestionController {
         @RequestAttribute SessionInfo sessionInfo,
         @RequestBody PostQuestion postQuestion
     ) {
-        return Result.success();
+        return Result
+            .success(questionService.createQuestion(sessionInfo.getCustomersId(), postQuestion));
     }
 
 }

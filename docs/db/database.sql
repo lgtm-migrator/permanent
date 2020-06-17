@@ -50,16 +50,36 @@ create table subject_categories
     UNIQUE KEY `name` (`customers_id`, `categories_name`)
 ) comment '题目分类表';
 
-create table questions
+create table question
 (
-    `id`           int auto_increment primary key,
-    `customers_id` int          not null comment '用户ID',
-    `title`        varchar(200) not null comment '问题标题',
-    `content`      text         null comment '问题描述',
-    `answer_id`    int          not null comment '答案ID',
-    `order_number` int       default 0 comment '排序',
-    `create_at`    timestamp default NOW() comment '创建时间',
-    `update_at`    timestamp    null comment '更新时间',
-    UNIQUE KEY `name` (`customers_id`, `answer_id`)
+    `id`             int auto_increment primary key,
+    `customers_id`   int          not null comment '用户ID',
+    `title`          varchar(200) not null comment '问题标题',
+    `source_content` text         null comment '输入问题描述',
+    `show_content`   text         null comment '转义展示问题描述',
+    `answer_id`      int          not null comment '答案ID',
+    `create_at`      timestamp default NOW() comment '创建时间',
+    `update_at`      timestamp    null comment '更新时间',
+    UNIQUE KEY `question` (`customers_id`, `answer_id`)
 ) comment '问题列表';
+
+create table answer
+(
+    `id`             int auto_increment primary key,
+    `customers_id`   int       not null comment '用户ID',
+    `source_content` text      null comment '输入答案描述',
+    `show_content`   text      null comment '转义展示答案描述',
+    `create_at`      timestamp default NOW() comment '创建时间',
+    `update_at`      timestamp null comment '更新时间'
+) comment '答案列表';
+
+create table subject_categories_question
+(
+    `id`                    int auto_increment primary key,
+    `customers_id`          int not null comment '用户ID',
+    `subject_categories_id` int null comment '题目分类ID',
+    `question_id`           int null comment '问题ID',
+    `order_number`          int default 0 comment '排序',
+    UNIQUE KEY `subject_categories_question` (`customers_id`, `subject_categories_id`, `question_id`)
+) comment '题目分类和问题关系表';
 
