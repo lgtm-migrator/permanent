@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e319e20-bf81-4b52-9cee-49080a7ddced" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/conf.d/permanent.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/conf.d/upstream.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/nginx/nginx.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/PermanentApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/CoreException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/OauthConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/RedisConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/SessionConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/SwaggerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/configuration/WebAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/constants/AuthConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/constants/BaseConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/constants/CodeConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/constants/PlatformConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/controller/CustomersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/controller/QuestionsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/controller/SubjectCategoriesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/interceptor/ProtectedInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/model/CustomersInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/model/PostSubjectCategories.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/model/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/model/SessionInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/model/SubjectCategoriesNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/dao/CustomersBindingDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/dao/CustomersDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/dao/PlatformDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/dao/QuestionsDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/dao/SubjectCategoriesDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/entity/CustomersBindingEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/entity/CustomersEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/entity/PlatformEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/entity/QuestionsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/entity/SubjectCategoriesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/mapper/CustomersBindingMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/mapper/CustomersMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/mapper/PlatformMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/mapper/QuestionsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/repository/mapper/SubjectCategoriesMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/CustomersService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/QuestionsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/SessionService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/SubjectCategoriesService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/platform/Platform.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/platform/PlatformFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/platform/QqService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/platform/data/PlatformOauth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/service/platform/data/PlatformUserInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/utils/CookieUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/utils/HttpUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/qianxunclub/permanent/utils/JsonUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/qianxunclub/permanent/MainTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/permanent-core-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1d4wFmMZYfV5YhzlVqzJKdqcE3X" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.qianxunclub.permanent.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/docker/nginx/conf.d" />
+      <recent name="$PROJECT_DIR$/docker/nginx" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PermanentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="permanent" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qianxunclub.permanent.PermanentApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e319e20-bf81-4b52-9cee-49080a7ddced" name="Default Changelist" comment="" />
+      <created>1591697571676</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591697571676</updated>
+      <workItem from="1591697574732" duration="42000" />
+      <workItem from="1591697642465" duration="187000" />
+      <workItem from="1591697843919" duration="181000" />
+      <workItem from="1591698034424" duration="82000" />
+      <workItem from="1591698127785" duration="62000" />
+      <workItem from="1591698200018" duration="22000" />
+      <workItem from="1591698231642" duration="945000" />
+      <workItem from="1591699189704" duration="622000" />
+      <workItem from="1591699963037" duration="102000" />
+      <workItem from="1591700099365" duration="386000" />
+      <workItem from="1591754861432" duration="13000" />
+      <workItem from="1591754981656" duration="7876000" />
+      <workItem from="1591783883246" duration="2221000" />
+      <workItem from="1591840974718" duration="1893000" />
+      <workItem from="1591843560402" duration="299000" />
+      <workItem from="1591843883034" duration="11719000" />
+      <workItem from="1591927903233" duration="18780000" />
+      <workItem from="1591956279343" duration="2763000" />
+      <workItem from="1592187724937" duration="4142000" />
+      <workItem from="1592276537125" duration="7685000" />
+      <workItem from="1592360404902" duration="1102000" />
+    </task>
+    <task id="LOCAL-00001" summary="添加 docker 支持">
+      <created>1591700159778</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591700159778</updated>
+    </task>
+    <task id="LOCAL-00002" summary="添加 docker 自定义配置">
+      <created>1591700333922</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591700333922</updated>
+    </task>
+    <task id="LOCAL-00003" summary="添加 docker 支持">
+      <created>1591777182064</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1591777182064</updated>
+    </task>
+    <task id="LOCAL-00004" summary="修改提示语">
+      <created>1591777245961</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591777245961</updated>
+    </task>
+    <task id="LOCAL-00005" summary="使用 jetty 服务">
+      <created>1591781416163</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1591781416163</updated>
+    </task>
+    <task id="LOCAL-00006" summary="添加校验过滤器">
+      <created>1591782968171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591782968171</updated>
+    </task>
+    <task id="LOCAL-00007" summary="修改构建镜像">
+      <created>1591785222152</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591785222152</updated>
+    </task>
+    <task id="LOCAL-00008" summary="修改构建镜像">
+      <created>1591786012607</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591786012607</updated>
+    </task>
+    <task id="LOCAL-00009" summary="添加登录处理&#10;添加异常处理">
+      <created>1591936096075</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1591936096075</updated>
+    </task>
+    <task id="LOCAL-00010" summary="添加题目分类">
+      <created>1591959148170</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1591959148170</updated>
+    </task>
+    <task id="LOCAL-00011" summary="添加问题功能">
+      <created>1592305520386</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1592305520386</updated>
+    </task>
+    <task id="LOCAL-00012" summary="添加登录返回字段">
+      <created>1592308307472</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1592308307472</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="添加 docker 自定义配置" />
+    <MESSAGE value="添加 docker 支持" />
+    <MESSAGE value="修改提示语" />
+    <MESSAGE value="使用 jetty 服务" />
+    <MESSAGE value="添加校验过滤器" />
+    <MESSAGE value="修改构建镜像" />
+    <MESSAGE value="添加登录处理&#10;添加异常处理" />
+    <MESSAGE value="添加题目分类" />
+    <MESSAGE value="添加问题功能" />
+    <MESSAGE value="添加登录返回字段" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加登录返回字段" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="406" y="102" key="#Docker_Image" timestamp="1591785120186">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="406" y="102" key="#Docker_Image/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591785120186" />
+    <state x="551" y="294" key="#Docker_Registry" timestamp="1591785197265">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="551" y="294" key="#Docker_Registry/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591785197265" />
+    <state x="0" y="23" width="628" height="877" key="#Dockerfile" timestamp="1591699071505">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="0" y="23" width="628" height="877" key="#Dockerfile/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591699071505" />
+    <state x="519" y="363" key="#Push_Image" timestamp="1591785197552">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="519" y="363" key="#Push_Image/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591785197552" />
+    <state x="392" y="91" key="#XML" timestamp="1591697795032">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="392" y="91" key="#XML/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591697795032" />
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591946563795">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="184" y="123" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591946563795" />
+    <state x="533" y="175" key="#com.intellij.ide.util.MemberChooser" timestamp="1591947347618">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="533" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591947347618" />
+    <state x="533" y="175" key="#com.intellij.ide.util.MemberChooser/0.23.1440.877@0.23.1440.877" timestamp="1591934863760" />
+    <state x="401" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591958440659">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="401" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591958440659" />
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591869720517">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="458" y="215" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591869720517" />
+    <state x="504" y="224" key="#xdebugger.evaluate" timestamp="1591935471915">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="412" y="89" key="#xdebugger.evaluate/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591933557253" />
+    <state x="504" y="224" key="#xdebugger.evaluate/0.23.1440.877@0.23.1440.877" timestamp="1591935471915" />
+    <state x="32" y="30" key="CommitChangelistDialog2" timestamp="1592308305205">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="32" y="30" key="CommitChangelistDialog2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308305205" />
+    <state width="545" height="466" key="DebuggerActiveHint" timestamp="1592305180774">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="545" height="466" key="DebuggerActiveHint/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592305180774" />
+    <state width="444" height="466" key="DebuggerActiveHint/0.23.1440.877@0.23.1440.877" timestamp="1591935786838" />
+    <state x="144" y="99" key="DiffContextDialog" timestamp="1591699657649">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="144" y="99" key="DiffContextDialog/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591699657649" />
+    <state width="1398" height="287" key="GridCell.Tab.0.bottom" timestamp="1592308319974">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="287" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319974" />
+    <state width="1398" height="351" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591935714692" />
+    <state width="1398" height="287" key="GridCell.Tab.0.center" timestamp="1592308319974">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="287" key="GridCell.Tab.0.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319974" />
+    <state width="1398" height="351" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1591935714690" />
+    <state width="1398" height="287" key="GridCell.Tab.0.left" timestamp="1592308319974">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="287" key="GridCell.Tab.0.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319974" />
+    <state width="1398" height="351" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1591935714690" />
+    <state width="1398" height="287" key="GridCell.Tab.0.right" timestamp="1592308319974">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="287" key="GridCell.Tab.0.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319974" />
+    <state width="1398" height="351" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1591935714691" />
+    <state width="1398" height="351" key="GridCell.Tab.1.bottom" timestamp="1592308319969">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.1.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319969" />
+    <state width="1398" height="351" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591935721964" />
+    <state width="1398" height="351" key="GridCell.Tab.1.center" timestamp="1592308319969">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.1.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319969" />
+    <state width="1398" height="351" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1591935721964" />
+    <state width="1398" height="351" key="GridCell.Tab.1.left" timestamp="1592308319969">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.1.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319969" />
+    <state width="1398" height="351" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1591935721963" />
+    <state width="1398" height="351" key="GridCell.Tab.1.right" timestamp="1592308319969">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.1.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319969" />
+    <state width="1398" height="351" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1591935721964" />
+    <state width="1398" height="351" key="GridCell.Tab.2.bottom" timestamp="1592308319970">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.2.bottom/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319970" />
+    <state width="1398" height="351" key="GridCell.Tab.2.bottom/0.23.1440.877@0.23.1440.877" timestamp="1591935714521" />
+    <state width="1398" height="351" key="GridCell.Tab.2.center" timestamp="1592308319970">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.2.center/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319970" />
+    <state width="1398" height="351" key="GridCell.Tab.2.center/0.23.1440.877@0.23.1440.877" timestamp="1591935714520" />
+    <state width="1398" height="351" key="GridCell.Tab.2.left" timestamp="1592308319969">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.2.left/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319969" />
+    <state width="1398" height="351" key="GridCell.Tab.2.left/0.23.1440.877@0.23.1440.877" timestamp="1591935714519" />
+    <state width="1398" height="351" key="GridCell.Tab.2.right" timestamp="1592308319970">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="351" key="GridCell.Tab.2.right/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308319970" />
+    <state width="1398" height="351" key="GridCell.Tab.2.right/0.23.1440.877@0.23.1440.877" timestamp="1591935714520" />
+    <state x="208" y="43" key="SettingsEditor" timestamp="1591932958160">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="208" y="43" key="SettingsEditor/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591932958160" />
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2" timestamp="1592308308791">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="201" key="Vcs.Push.Dialog.v2/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1592308308791" />
+    <state width="720" height="438" key="XDebugger.FullValuePopup" timestamp="1591933403514">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="720" height="438" key="XDebugger.FullValuePopup/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591933403514" />
+    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591931230812">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591931230812" />
+    <state x="418" y="216" width="604" height="490" key="find.popup" timestamp="1591781129051">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="418" y="216" width="604" height="490" key="find.popup/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591781129051" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1591863306328">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877/1440.23.1920.1057@0.23.1440.877" timestamp="1591863306328" />
+  </component>
+</project>
