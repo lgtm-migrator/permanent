@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/subject/subject",
+    "pages/me/me"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "记忆学习",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icon.jpg",
+        "selectedIconPath": "images/icon.jpg"
+      },
+      {
+        "text": "题库",
+        "pagePath": "pages/subject/subject",
+        "iconPath": "images/icon.jpg",
+        "selectedIconPath": "images/icon.jpg"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/me/me",
+        "iconPath": "images/icon.jpg",
+        "selectedIconPath": "images/icon.jpg"
+      }
+    ]
+  }
+}
