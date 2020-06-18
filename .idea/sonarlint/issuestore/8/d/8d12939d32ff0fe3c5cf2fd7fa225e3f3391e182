@@ -1,8 +1,0 @@
-
-c
-java:S1192"MDefine a constant instead of duplicating this literal "customers_id" 5 times.(ê´¼¨
-l
-java:S1192%"JDefine a constant instead of duplicating this literal "parent_id" 3 times.(Ÿêÿ‘úÿÿÿÿ8ˆþÐµ«.
-c
-java:S1192"MDefine a constant instead of duplicating this literal "order_number" 4 times.(¢ØÝ»
-m	java:S117>"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å…í×8ˆþÐµ«.

@@ -31,5 +31,5 @@ build/
 ### VS Code ###
 .vscode/
 
-app/permanent-wxss/node_modules
-app/permanent-wxss/weui-miniprogram
+app/permanent-wxss/miniprogram/node_modules
+app/permanent-wxss/miniprogram/weui-miniprogram
