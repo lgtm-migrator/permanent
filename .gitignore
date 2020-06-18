@@ -32,4 +32,4 @@ build/
 .vscode/
 
 app/permanent-wxss/miniprogram/node_modules
-app/permanent-wxss/miniprogram/weui-miniprogram
+app/permanent-wxss/miniprogram/miniprogram_npm
