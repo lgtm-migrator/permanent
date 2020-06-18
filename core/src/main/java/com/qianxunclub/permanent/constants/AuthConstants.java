@@ -26,6 +26,7 @@ public class AuthConstants {
         }
 
         public static final String AUTHORIZE = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
+        public static final String JSCODE2SESSION = "https://api.weixin.qq.com/sns/jscode2session";
     }
 
 

@@ -22,6 +22,7 @@ public enum CodeConstants {
      * 通用
      */
     NOT_SUPPORTED("200", "Not Supported", HttpStatus.INTERNAL_SERVER_ERROR),
+    PARAMETER_INVALID("201", "Param invalid", HttpStatus.BAD_REQUEST),
 
     /**
      * 权限相关

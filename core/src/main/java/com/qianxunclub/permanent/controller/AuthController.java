@@ -42,16 +42,15 @@ public class AuthController {
         response.sendRedirect(authService.authorize(platform));
     }
 
-    @PostMapping("login/{platform}")
-    public void login(
-        @PathVariable String platform,
+    @PostMapping("wxss/{code}")
+    public Result wxss(
+        @PathVariable String code,
         HttpServletResponse response,
         HttpServletRequest request,
-        @RequestBody PlatformUserInfo platformUserInfo,
-        @RequestBody PlatformOauth platformOauth
-    ) {
-        CustomersInfo customersInfo = authService.register(platformOauth, platformUserInfo);
-        authService.loginByPlatform(request, response, customersInfo);
+        @RequestBody PlatformUserInfo platformUserInfo
+    ) throws CoreException {
+        CustomersInfo customersInfo = authService.registerByWxss(code, platformUserInfo);
+        return Result.success(authService.loginByPlatform(request, response, customersInfo));
     }
 
     @GetMapping("callback")

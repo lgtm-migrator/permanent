@@ -15,6 +15,7 @@ public class CustomersBindingEntity {
 
     @TableId(type = IdType.AUTO)
     private Long id;
+    private String platform;
     private Long customersId;
     private Long platformId;
 }

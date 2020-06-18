@@ -2,6 +2,7 @@ package com.qianxunclub.permanent.service.platform;
 
 import com.qianxunclub.permanent.configuration.CoreException;
 import com.qianxunclub.permanent.configuration.OauthConfiguration;
+import com.qianxunclub.permanent.constants.AuthConstants.QqApi;
 import com.qianxunclub.permanent.constants.AuthConstants.WxssApi;
 import com.qianxunclub.permanent.constants.BaseConstants;
 import com.qianxunclub.permanent.constants.CodeConstants;
@@ -10,6 +11,8 @@ import com.qianxunclub.permanent.service.platform.data.PlatformOauth;
 import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import com.qianxunclub.permanent.utils.HttpUtil;
 import com.qianxunclub.permanent.utils.JsonUtil;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -54,7 +57,17 @@ public class WxssService extends Platform {
 
     @Override
     public PlatformOauth oauth(String code) throws CoreException {
-        throw CoreException.of(CodeConstants.NOT_SUPPORTED);
+        Map<String, String> params = new HashMap<>();
+        params.put("appid", oauthConfiguration.getWxss().getAppId());
+        params.put("secret", oauthConfiguration.getWxss().getAppSecret());
+        params.put("js_code", code);
+        params.put("grant_type", "authorization_code");
+        String response = HttpUtil.httpGet(QqApi.GET_USER_INFO, params);
+        Map<String, String> map = JsonUtil.getGson().fromJson(response, Map.class);
+        PlatformOauth platformOauth = new PlatformOauth();
+        platformOauth.setPlatform(this.getPlatform().getPlatformName());
+        platformOauth.setOpenId(map.get("openid"));
+        return platformOauth;
     }
 
     @Override

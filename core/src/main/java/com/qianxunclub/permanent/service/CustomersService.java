@@ -27,7 +27,7 @@ public class CustomersService {
         PlatformEntity platformEntity) {
         CustomersEntity customersEntity;
         CustomersBindingEntity customersBindingEntity = customersBindingDao
-            .get(platformEntity.getId());
+            .getByPlatformId(platformEntity.getPlatform(), platformEntity.getId());
         if (customersBindingEntity == null) {
             customersEntity = this.generateCustomers(platformUserInfo);
             customersDao.insert(customersEntity);

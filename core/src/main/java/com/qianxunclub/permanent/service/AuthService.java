@@ -2,9 +2,11 @@ package com.qianxunclub.permanent.service;
 
 import com.qianxunclub.permanent.configuration.CoreException;
 import com.qianxunclub.permanent.constants.BaseConstants;
+import com.qianxunclub.permanent.constants.CodeConstants;
 import com.qianxunclub.permanent.constants.PlatformConstants;
 import com.qianxunclub.permanent.model.CustomersInfo;
 import com.qianxunclub.permanent.model.SessionInfo;
+import com.qianxunclub.permanent.repository.dao.CustomersBindingDao;
 import com.qianxunclub.permanent.repository.dao.PlatformDao;
 import com.qianxunclub.permanent.repository.entity.PlatformEntity;
 import com.qianxunclub.permanent.service.platform.Platform;
@@ -33,6 +35,7 @@ public class AuthService {
     private final PlatformDao platformDao;
     private final CustomersService customersService;
     private final SessionService sessionService;
+    private final CustomersBindingDao customersBindingDao;
 
     public String authorize(String platform) throws CoreException {
         if (PlatformConstants.WXSS.equals(PlatformConstants.valueOf(platform))) {
@@ -52,8 +55,19 @@ public class AuthService {
         return customersService.register(platformUserInfo, platformEntity);
     }
 
-    @Transactional(rollbackFor = {Exception.class})
-    public CustomersInfo register(PlatformOauth platformOauth, PlatformUserInfo platformUserInfo) {
+    public CustomersInfo registerByWxss(String code, PlatformUserInfo platformUserInfo)
+        throws CoreException {
+        if (platformUserInfo.getNickname() == null
+            || platformUserInfo.getGender() == null
+            || platformUserInfo.getAvatarUrl() == null
+        ) {
+            throw CoreException.of(CodeConstants.PARAMETER_INVALID);
+        }
+        Platform platform = PlatformFactory.getInstance(PlatformConstants.WXSS);
+        PlatformOauth platformOauth = platform.oauth(code);
+        if (platformOauth.getOpenId() == null) {
+            throw CoreException.of(CodeConstants.FAIL);
+        }
         PlatformEntity platformEntity = platformDao.insertOrUpdate(platformOauth);
         return customersService.register(platformUserInfo, platformEntity);
     }
@@ -62,7 +76,11 @@ public class AuthService {
         HttpServletRequest request,
         HttpServletResponse response,
         CustomersInfo customersInfo
-    ) {
+    ) throws CoreException {
+        if (null == customersInfo.getId()) {
+            throw CoreException
+                .of(CodeConstants.PARAMETER_INVALID.setMessage("customersInfo not null"));
+        }
         String sessionId = null;
         SessionInfo sessionInfo = null;
         Cookie cookie = CookieUtil.get(request, BaseConstants.SESSION_COOKIE_NAME);
