@@ -35,7 +35,7 @@ public enum PlatformConstants {
         PlatformConstants[] platformConstants = PlatformConstants.values();
         for (int i = 0; i < platformConstants.length; i++) {
             PlatformConstants platform = platformConstants[i];
-            if (platform.getAuthService().getClass().isAssignableFrom(clazz.getClass())) {
+            if (platform.getAuthService().isAssignableFrom(clazz)) {
                 return platform;
             }
         }

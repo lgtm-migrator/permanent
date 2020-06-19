@@ -2,7 +2,6 @@ package com.qianxunclub.permanent.service.platform;
 
 import com.qianxunclub.permanent.configuration.CoreException;
 import com.qianxunclub.permanent.configuration.OauthConfiguration;
-import com.qianxunclub.permanent.constants.AuthConstants.QqApi;
 import com.qianxunclub.permanent.constants.AuthConstants.WxssApi;
 import com.qianxunclub.permanent.constants.BaseConstants;
 import com.qianxunclub.permanent.constants.CodeConstants;
@@ -62,7 +61,7 @@ public class WxssService extends Platform {
         params.put("secret", oauthConfiguration.getWxss().getAppSecret());
         params.put("js_code", code);
         params.put("grant_type", "authorization_code");
-        String response = HttpUtil.httpGet(QqApi.GET_USER_INFO, params);
+        String response = HttpUtil.httpGet(WxssApi.JSCODE2SESSION, params);
         Map<String, String> map = JsonUtil.getGson().fromJson(response, Map.class);
         PlatformOauth platformOauth = new PlatformOauth();
         platformOauth.setPlatform(this.getPlatform().getPlatformName());

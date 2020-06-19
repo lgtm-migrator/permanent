@@ -15,10 +15,9 @@ public class CustomersBindingDao {
 
     private final CustomersBindingMapper customersBindingMapper;
 
-    public CustomersBindingEntity getByPlatformId(String platform, Long platformId) {
+    public CustomersBindingEntity getByPlatformId(Long platformId) {
         QueryWrapper<CustomersBindingEntity> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("platform_id", platformId);
-        queryWrapper.eq("platform", platform);
         return customersBindingMapper.selectOne(queryWrapper);
     }
 

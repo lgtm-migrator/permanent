@@ -27,11 +27,12 @@ public class CustomersService {
         PlatformEntity platformEntity) {
         CustomersEntity customersEntity;
         CustomersBindingEntity customersBindingEntity = customersBindingDao
-            .getByPlatformId(platformEntity.getPlatform(), platformEntity.getId());
+            .getByPlatformId(platformEntity.getId());
         if (customersBindingEntity == null) {
             customersEntity = this.generateCustomers(platformUserInfo);
             customersDao.insert(customersEntity);
             customersBindingEntity = new CustomersBindingEntity();
+            customersBindingEntity.setPlatform(platformEntity.getPlatform());
             customersBindingEntity.setCustomersId(customersEntity.getId());
             customersBindingEntity.setPlatformId(platformEntity.getId());
             customersBindingDao.insert(customersBindingEntity);

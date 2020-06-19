@@ -6,7 +6,6 @@ import com.qianxunclub.permanent.model.CustomersInfo;
 import com.qianxunclub.permanent.model.Result;
 import com.qianxunclub.permanent.service.AuthService;
 
-import com.qianxunclub.permanent.service.platform.data.PlatformOauth;
 import com.qianxunclub.permanent.service.platform.data.PlatformUserInfo;
 import javax.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;

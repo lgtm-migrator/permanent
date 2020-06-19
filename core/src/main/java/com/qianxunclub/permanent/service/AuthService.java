@@ -55,6 +55,7 @@ public class AuthService {
         return customersService.register(platformUserInfo, platformEntity);
     }
 
+    @Transactional(rollbackFor = {Exception.class})
     public CustomersInfo registerByWxss(String code, PlatformUserInfo platformUserInfo)
         throws CoreException {
         if (platformUserInfo.getNickname() == null

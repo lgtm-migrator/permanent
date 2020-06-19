@@ -31,6 +31,7 @@ public class CoreException extends Exception {
         if (exception instanceof CoreException) {
             CoreException coreException = (CoreException) exception;
             result = new Result(coreException.code, coreException.message);
+            this.httpStatus = coreException.httpStatus;
         } else {
             result = new Result(CodeConstants.FAIL.setMessage(exception.getMessage()));
         }
