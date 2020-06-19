@@ -1,2 +1,4 @@
 <!--miniprogram/pages/subject/subject.wxml-->
-<text>题库</text>
+{{date}}
+{{fengxiang}}
+{{type}}

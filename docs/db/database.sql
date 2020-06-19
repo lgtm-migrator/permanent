@@ -33,6 +33,7 @@ create table customers
 create table customers_binding
 (
     `id`           int auto_increment primary key,
+    `platform`     varchar(20)  not null comment '授权服务类型：QQ,WECHAT,WEIBO等',
     `customers_id` int not null comment '用户ID',
     `platform_id`  int null comment '第三方授权ID',
     UNIQUE KEY `binding` (`customers_id`, `platform_id`)
